@@ -5,5 +5,8 @@
     "editor.defaultFormatter": "ms-dotnettools.csdevkit",
     "editor.insertSpaces": false,
     "editor.mouseWheelZoom": true,
-    "editor.smoothScrolling": false
+    "editor.smoothScrolling": false,
+    "[html]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
