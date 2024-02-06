@@ -1,4 +1,6 @@
 using API.Data;
+using API.Entities;
+using API.Helpers;
 using API.Interfaces;
 using API.Services;
 using Microsoft.EntityFrameworkCore;
@@ -13,10 +15,11 @@ namespace API.Extensions
                 opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
             });
             services.AddCors();
-
             services.AddScoped<ITokenService, TokenService>();
 			services.AddScoped<IUserRepository, UserRepository>();
 			services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+			services.Configure<CloudinarySettings>(config.GetSection("CloudinarySettings"));
+			services.AddScoped<IPhotoService, PhotoService>();
 
             return services;
         }
